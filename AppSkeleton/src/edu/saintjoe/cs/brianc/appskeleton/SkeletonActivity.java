@@ -36,6 +36,9 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
 	private Button saveButton;
 	private Button retrieveButton;
 	private Label resultLabel;
+	//Variable to hold our save value for later retrieval
+	private int savedValue;
+	private TextBox inputBox;
 
  // Java Bridger apps all use $define() in place of main()
  void $define() {
@@ -53,7 +56,7 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
      saveButton = new Button(line1,"Save");   
      retrieveButton = new Button (line1,"Retrieve")
      resultLabel = new Label(line2,"");
-     
+     inputBox = new TextBox (line2, "";)
      
      // Let the runtime system know which events to report to the dispatcher
      EventDispatcher.registerEventForDelegation(this, "ButtonClick", "Click");
@@ -67,8 +70,9 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
          Object[] args) {
  	
  	// This code is equivalent to the "Blocks" part of App Inventor
-	    if (component.equals(dumbButton) && eventName.equals("Click")){
-	    	resultLabel.Text("Empujado!!");
+	    if (component.equals(saveButton) && eventName.equals("Click")){
+	    	savedValue = Integer.parseInt(inputBox.Text());
+	    	resultLabel.text(inputBox.Text());
 	        return true;
 	     } // end dispatch '+' press
 	
