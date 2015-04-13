@@ -33,7 +33,8 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
 	private HorizontalArrangement line2;
 
 	// Next our two components
-	private Button dumbButton;
+	private Button saveButton;
+	private Button retrieveButton;
 	private Label resultLabel;
 
  // Java Bridger apps all use $define() in place of main()
@@ -49,7 +50,8 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
      line2 = new HorizontalArrangement(this);
      
      // Now create the user interface
-     dumbButton = new Button(line1,"Empujeme");   
+     saveButton = new Button(line1,"Save");   
+     retrieveButton = new Button (line1,"Retrieve")
      resultLabel = new Label(line2,"");
      
      
